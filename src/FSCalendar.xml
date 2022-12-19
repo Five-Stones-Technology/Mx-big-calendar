@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget id="fivestones.fscalendar.FSCalendar" pluginWidget="true" needsEntityContext="true" offlineCapable="true"
+        supportedPlatform="Web"
+        xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
+    <name>FSCalendar</name>
+    <description>Mendix Widget wrapping the Five Stones RCT-big-calendar library</description>
+    <icon/>
+    <properties>
+        <propertyGroup caption="General">
+            <property key="startDate" type="expression" required="false">
+                <caption>Start Date</caption>
+                <description>Date the calendar will open to. If no value given, will default to today's date</description>
+                <returnType type="DateTime" />
+            </property>
+
+            <property key="selectedDate" type="attribute" required="false">
+                <caption>Currently Selected Date</caption>
+                <description>Attribute where the currently selected date will be stored. "onSelectedDateChange" will trigger when this property is updated</description>
+                <attributeTypes>
+                    <attributeType name="DateTime"/>
+                </attributeTypes>
+            </property>
+        </propertyGroup>
+
+                <propertyGroup caption="Events">
+            <property key="onSelectedDateChange" type="action" required="false">
+                <caption>Selected Date Change</caption>
+                <description>Event that is triggered when a date is selected</description>
+            </property>
+
+        </propertyGroup>
+
+    </properties>
+</widget>

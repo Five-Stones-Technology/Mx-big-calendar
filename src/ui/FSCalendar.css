@@ -1,0 +1,12 @@
+@import '../../node_modules/fs-big-calendar/lib/css/fs-big-calendar.css';
+
+/*
+Place your custom CSS here
+*/
+.widget-hello-world {
+
+}
+
+.myCustomHeight{
+    height: 700px;
+}

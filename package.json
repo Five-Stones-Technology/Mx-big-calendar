@@ -1,20 +1,20 @@
 {
-  "name": "mxbigcalendar",
-  "widgetName": "MxBigCalendar",
+  "name": "fscalendar",
+  "widgetName": "FSCalendar",
   "version": "1.0.0",
   "description": "Mendix Widget wrapping the Five Stones RCT-big-calendar library",
   "copyright": "© Mendix Technology BV 2022. All rights reserved.",
-  "author": "Five STones",
+  "author": "Five Stones",
   "engines": {
     "node": ">=16"
   },
   "license": "Apache-2.0",
   "config": {
-    "projectPath": "Five Stones",
+    "projectPath": "C:\\Mendix Projects\\ETT-main",
     "mendixHost": "http://localhost:8080",
     "developmentPort": 3000
   },
-  "packagePath": "five stones",
+  "packagePath": "fivestones",
   "scripts": {
     "start": "pluggable-widgets-tools start:server",
     "dev": "pluggable-widgets-tools start:web",
@@ -28,6 +28,7 @@
     "@mendix/pluggable-widgets-tools": "^9.18.0"
   },
   "dependencies": {
-    "classnames": "^2.2.6"
+    "classnames": "^2.2.6",
+    "fs-big-calendar": "^1.0.9"
   }
 }
