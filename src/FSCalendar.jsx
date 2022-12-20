@@ -28,16 +28,16 @@ const FSCalendar = (props) => {
     // const checkDate = null;
     // const helloWorld = 'HelloWOrld';
 
-    const handleDateSelect = (start, end) => {
-        setState({ ...state, helloWorld: "new date selected" });
-        // props.selectedDate.setValue(start);
-        // if(props.onSelectedDateChange && props.onSelectedDateChange.canExecute){
-        //     props.onSelectedDateChange.execute();
-        // }
+    const handleDateSelect = ({start, end}) => {
+        setState({ ...state, helloWorld: JSON.stringify(start) });
+        props.selectedDate.setValue(start);
+        if(props.onSelectedDateChange && props.onSelectedDateChange.canExecute){
+            props.onSelectedDateChange.execute();
+        }
     };
 
     const handleEventClick = (courseInMoreInfo, event) => {
-        setState({ ...state, helloWorld: "new event click" });
+        setState({ ...state, helloWorld: JSON.stringify(courseInMoreInfo)});
 
         // const { currentTarget } = event;
         // event.stopPropagation();
@@ -54,13 +54,21 @@ const FSCalendar = (props) => {
             {JSON.stringify(state?.checkDate)}
             {state?.helloWorld}
             <Calendar
+                eventPropGetter={(event) => ({
+                    class:{},
+                    style: {
+                    background: "5px solid",
+                    },
+                 })}
                 localizer={localizer}
                 events={events}
                 defaultDate={state?.defaultDate}
                 startAccessor="start"
                 endAccessor="end"
-                onSelectSlot={handleEventClick}
+                selectable={true}
+                onSelectSlot={handleDateSelect}
                 onSelectEvent={handleEventClick}
+
             />
     </div>
     )

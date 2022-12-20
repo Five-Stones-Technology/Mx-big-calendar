@@ -14,9 +14,25 @@
                 <returnType type="DateTime" />
             </property>
 
-            <property key="selectedDate" type="attribute" required="false">
+            <property key="selectedDateStart" type="attribute" required="false">
                 <caption>Currently Selected Date</caption>
-                <description>Attribute where the currently selected date will be stored. "onSelectedDateChange" will trigger when this property is updated</description>
+                <description>Attribute where the currently selected date will be stored. "onDateSelected" will trigger when this property is updated</description>
+                <attributeTypes>
+                    <attributeType name="DateTime"/>
+                </attributeTypes>
+            </property>
+
+            <property key="selectedDateEnd" type="attribute" required="false">
+                <caption>Currently Selected Date</caption>
+                <description>Attribute where the currently selected date will be stored. "onDateSelected" will trigger when this property is updated</description>
+                <attributeTypes>
+                    <attributeType name="DateTime"/>
+                </attributeTypes>
+            </property>
+
+            <property key="selectedEvent" type="attribute" required="false">
+                <caption>Currently Selected Event</caption>
+                <description>Attribute where the currently selected event will be stored. "onEventSelected" will trigger when this property is updated</description>
                 <attributeTypes>
                     <attributeType name="DateTime"/>
                 </attributeTypes>
@@ -24,9 +40,14 @@
         </propertyGroup>
 
                 <propertyGroup caption="Events">
-            <property key="onSelectedDateChange" type="action" required="false">
+            <property key="onDateSelected" type="action" required="false">
                 <caption>Selected Date Change</caption>
                 <description>Event that is triggered when a date is selected</description>
+            </property>
+
+            <property key="onEventSelected" type="action" required="false">
+                <caption>Event Item Selected</caption>
+                <description>Event that is triggered when an Event is selected</description>
             </property>
 
         </propertyGroup>

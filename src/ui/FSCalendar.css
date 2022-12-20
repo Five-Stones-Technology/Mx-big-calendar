@@ -7,6 +7,10 @@ Place your custom CSS here
 
 }
 
+.rbc-weekend {
+    background-color: red;
+}
+
 .myCustomHeight{
     height: 700px;
 }
