@@ -6,11 +6,30 @@ Place your custom CSS here
 .widget-hello-world {
 
 }
-
+/* 
 .rbc-weekend {
     background-color: red;
-}
+} */
 
 .myCustomHeight{
     height: 700px;
 }
+
+.rbc-date-cell{
+    background-color: #8080803b;
+  
+  }
+  
+  .rbc-button-link{
+    color: #5b5bc0;
+    font-weight: 600;
+    font-size: larger;
+  }
+
+  .fs-selected-day {
+    background-color: red;
+  }
+
+  .fs-selected-day-again {
+    background-color: green;
+  }

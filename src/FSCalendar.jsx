@@ -1,74 +1,75 @@
 import React, {createElement} from "react";
-import { Calendar, dateFnsLocalizer } from 'fs-big-calendar'
+import { Calendar, dateFnsLocalizer, DateLocalizer } from 'fs-big-calendar'
+import clsx from 'clsx'
 
 import format from 'date-fns/format'
 import parse from 'date-fns/parse'
 import startOfWeek from 'date-fns/startOfWeek'
 import getDay from 'date-fns/getDay'
+import isSameDay from 'date-fns/isSameDay'
 import enUS from 'date-fns/locale/en-US'
 
 import "./ui/FSCalendar.css";
-import events from './test/testevents.js'
-
 
 const FSCalendar = (props) => {
-    const [state, setState] = React.useState({ checkDate: null, defaultDate: props.startDate ? props.startDate.value : new Date(2015, 3, 1), helloWorld: "HWorld" });
+    const [state, setState] = React.useState(
+        {   events: [],
+            localizer : dateFnsLocalizer({format,parse,startOfWeek,getDay, locales: {'en-US': enUS}}),
+            startDate : props.startDate ? props.startDate.value : new Date(),
+        });
+    React.useEffect(() => {
+        if (props.dataSourceEvents?.status === 'available') {
+            const oEvents = props.dataSourceEvents.items.map(item => {
+                const id = Number(props.oidAttr.get(item).displayValue);
+                const title = props.titleAttr.get(item).value;
+                const start = props.dateStartAttr.get(item).value;
+                const end = props.dateEndAttr.get(item).value;
+                const isAllDay = props.isAllDayAttr.get(item).value;
+                const isHoliday = props.isHolidayAttr.get(item).value;
+                const customEventBackgroundColor = props.customBackgroundAttr.get(item).value;
+                return {id, title, start, end, isAllDay, isHoliday, customEventBackgroundColor};
+            });
+            setState({...state, events: oEvents});
+        }
+    }, [props.dataSourceEvents]);
 
-    const localizer = dateFnsLocalizer({
-    format,
-    parse,
-    startOfWeek,
-    getDay,
-    locales: {
-        'en-US': enUS,
-        },
-    })
-    
-    // const defaultDate = props.startDate ? props.startDate.value : new Date(2015, 3, 1);
-    // const checkDate = null;
-    // const helloWorld = 'HelloWOrld';
 
     const handleDateSelect = ({start, end}) => {
-        setState({ ...state, helloWorld: JSON.stringify(start) });
         props.selectedDate.setValue(start);
-        if(props.onSelectedDateChange && props.onSelectedDateChange.canExecute){
-            props.onSelectedDateChange.execute();
+        if(props.onDateSelected && props.onDateSelected.canExecute){
+            props.onDateSelected.execute();
         }
     };
 
     const handleEventClick = (courseInMoreInfo, event) => {
-        setState({ ...state, helloWorld: JSON.stringify(courseInMoreInfo)});
-
-        // const { currentTarget } = event;
-        // event.stopPropagation();
-
-        // if (courseInMoreInfo.sectionType !== 'Fin')
-        //     this.setState((state) => ({
-        //         anchorEvent: Boolean(state.anchorEvent) ? null : currentTarget,
-        //         courseInMoreInfo: courseInMoreInfo,
-        //     }));
+        event.preventDefault();
+        props.selectedEventOid.setValue(courseInMoreInfo.id.toString());
+        if(props.onEventSelected && props.onEventSelected.canExecute){
+            props.onEventSelected.execute();
+        }
     };
 
     return  (
         <div className="myCustomHeight">
-            {JSON.stringify(state?.checkDate)}
-            {state?.helloWorld}
             <Calendar
-                eventPropGetter={(event) => ({
-                    class:{},
-                    style: {
-                    background: "5px solid",
-                    },
+                dayPropGetter={(date) => ({
+                    className:clsx(
+                        isSameDay(props.selectedDate?.value, date) && 'fs-selected-day',
+                      ),
                  })}
-                localizer={localizer}
-                events={events}
-                defaultDate={state?.defaultDate}
+                //  slotPropGetter={(date) => ({
+                //     className:clsx(
+                //         props.selectedDate?.value < date && 'rbc-today',
+                //       ),
+                //  })}
+                localizer={state?.localizer}
+                defaultDate={state?.startDate}
+                selectable={true}
                 startAccessor="start"
                 endAccessor="end"
-                selectable={true}
                 onSelectSlot={handleDateSelect}
                 onSelectEvent={handleEventClick}
-
+                events={state?.events}
             />
     </div>
     )
