@@ -26,6 +26,13 @@
                     <attributeType name="String"/>
                 </attributeTypes>
             </property>
+            <property key="fullTitleAttr" type="attribute" dataSource="dataSourceEvents" required="true">
+                <caption>Full Title</caption>
+               <description />
+                <attributeTypes>
+                    <attributeType name="String"/>
+                </attributeTypes>
+            </property>
             <property key="dateStartAttr" type="attribute" dataSource="dataSourceEvents" required="true">
                 <caption>Start Date</caption>
                <description />
@@ -59,6 +66,13 @@
                 <description />
                 <attributeTypes>
                     <attributeType name="String"/>
+                </attributeTypes>
+            </property>
+            <property key="isShowFullTitle" type="attribute" required="true">
+                <caption>Show Full Event Title</caption>
+                <description />
+                <attributeTypes>
+                    <attributeType name="Boolean"/>
                 </attributeTypes>
             </property>
         </propertyGroup>

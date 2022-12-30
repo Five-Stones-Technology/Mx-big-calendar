@@ -21,7 +21,7 @@ const FSCalendar = (props) => {
         if (props.dataSourceEvents?.status === 'available') {
             const oEvents = props.dataSourceEvents.items.map(item => {
                 const id = Number(props.oidAttr.get(item).displayValue);
-                const title = props.titleAttr.get(item).value;
+                const title = props.isShowFullTitle?.value ? props.fullTitleAttr.get(item).value : props.titleAttr.get(item).value;
                 const start = props.dateStartAttr.get(item).value;
                 const end = props.dateEndAttr.get(item).value;
                 const isAllDay = props.isAllDayAttr.get(item).value;
@@ -57,11 +57,11 @@ const FSCalendar = (props) => {
                         isSameDay(props.selectedDate?.value, date) && 'fs-selected-day',
                       ),
                  })}
-                //  slotPropGetter={(date) => ({
-                //     className:clsx(
-                //         props.selectedDate?.value < date && 'rbc-today',
-                //       ),
-                //  })}
+                 slotPropGetter={(date) => ({
+                    className:clsx(
+                        isSameDay(props.selectedDate?.value, date) && 'fs-selected-day',
+                      ),
+                 })}
                 localizer={state?.localizer}
                 defaultDate={state?.startDate}
                 selectable={true}
