@@ -14,6 +14,7 @@ import "./ui/FSCalendar.css";
 const FSCalendar = (props) => {
     const [state, setState] = React.useState(
         {   events: [],
+            holidays: [],
             localizer : dateFnsLocalizer({format,parse,startOfWeek,getDay, locales: {'en-US': enUS}}),
             startDate : props.startDate ? props.startDate.value : new Date(),
         });
@@ -25,13 +26,21 @@ const FSCalendar = (props) => {
                 const start = props.dateStartAttr.get(item).value;
                 const end = props.dateEndAttr.get(item).value;
                 const isAllDay = props.isAllDayAttr.get(item).value;
-                const isHoliday = props.isHolidayAttr.get(item).value;
                 const customEventBackgroundColor = props.customBackgroundAttr.get(item).value;
-                return {id, title, start, end, isAllDay, isHoliday, customEventBackgroundColor};
+                return {id, title, start, end, isAllDay, customEventBackgroundColor};
             });
             setState({...state, events: oEvents});
         }
-    }, [props.dataSourceEvents]);
+
+        if (props.dataSourceHolidays?.status === 'available') {
+            const oHolidays = props.dataSourceHolidays.items.map(item => {
+                const title = props.holidayTitleAttr.get(item).value;
+                const date = props.holidayDateAttr.get(item).value;
+                return {title, date};
+            });
+            setState({...state, holidays: oHolidays});
+        }
+    }, [props.dataSourceEvents, props.dataSourceHolidays]);
 
 
     const handleDateSelect = ({start, end}) => {
@@ -70,6 +79,7 @@ const FSCalendar = (props) => {
                 onSelectSlot={handleDateSelect}
                 onSelectEvent={handleEventClick}
                 events={state?.events}
+                holidays={state?.holidays}
             />
     </div>
     )

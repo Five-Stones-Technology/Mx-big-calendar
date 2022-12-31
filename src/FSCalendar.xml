@@ -54,13 +54,6 @@
                     <attributeType name="Boolean"/>
                 </attributeTypes>
             </property>
-            <property key="isHolidayAttr" type="attribute" dataSource="dataSourceEvents" required="true">
-                <caption>Holiday</caption>
-                <description />
-                <attributeTypes>
-                    <attributeType name="Boolean"/>
-                </attributeTypes>
-            </property>
             <property key="customBackgroundAttr" type="attribute" dataSource="dataSourceEvents" required="true">
                 <caption>Custom Event Background</caption>
                 <description />
@@ -73,6 +66,25 @@
                 <description />
                 <attributeTypes>
                     <attributeType name="Boolean"/>
+                </attributeTypes>
+            </property>
+
+            <property key="dataSourceHolidays" type="datasource" isList="true" required="true">
+                <caption>Data source</caption>
+                <description />
+            </property>
+            <property key="holidayTitleAttr" type="attribute" dataSource="dataSourceHolidays" required="true">
+                <caption>Holiday Title</caption>
+                <description />
+                <attributeTypes>
+                    <attributeType name="String"/>
+                </attributeTypes>
+            </property>
+            <property key="holidayDateAttr" type="attribute" dataSource="dataSourceHolidays" required="true">
+                <caption>Date</caption>
+                <description />
+                <attributeTypes>
+                    <attributeType name="DateTime"/>
                 </attributeTypes>
             </property>
         </propertyGroup>
