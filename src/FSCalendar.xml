@@ -96,7 +96,7 @@
                 <returnType type="DateTime" />
             </property>
 
-            <property key="selectedDate" type="attribute" required="false">
+            <property key="selectedDate" type="attribute" required="true">
                 <caption>Currently Selected Date</caption>
                 <description>Attribute where the currently selected date will be stored. "onDateSelected" will trigger when this property is updated</description>
                 <attributeTypes>
@@ -104,7 +104,7 @@
                 </attributeTypes>
             </property>
 
-            <property key="selectedEventOid" type="attribute" required="false">
+            <property key="selectedEventOid" type="attribute" required="true">
                 <caption>Selected Event Oid</caption>
                 <description>Attribute where the currently selected event will be stored. "onEventSelected" will trigger when this property is updated</description>
                 <attributeTypes>

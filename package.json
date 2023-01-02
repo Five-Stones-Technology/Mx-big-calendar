@@ -29,6 +29,6 @@
   },
   "dependencies": {
     "classnames": "^2.2.6",
-    "fs-big-calendar": "^1.0.34"
+    "fs-big-calendar": "^1.0.35"
   }
 }

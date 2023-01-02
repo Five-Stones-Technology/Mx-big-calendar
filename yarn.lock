@@ -4533,10 +4533,10 @@
   "resolved" "https://registry.npmjs.org/fresh/-/fresh-0.5.2.tgz"
   "version" "0.5.2"
 
-"fs-big-calendar@^1.0.34":
-  "integrity" "sha512-SWWXa6k4S/2QQDKAD9SIYPCpgSyj02FsranNLSdl6p52/v0B7os2z+wKJL5cHBG0huAs3e5zVY3nRE5ndLTejA=="
-  "resolved" "https://registry.npmjs.org/fs-big-calendar/-/fs-big-calendar-1.0.34.tgz"
-  "version" "1.0.34"
+"fs-big-calendar@^1.0.35":
+  "integrity" "sha512-bCqK2IukxEp/hLzjBs3jUCnaixFtdIj7aiJJXJma9HsU+GqGDTL6EasJn/1zcwGnxJ6jKZB58XouVwInyj7GZQ=="
+  "resolved" "https://registry.npmjs.org/fs-big-calendar/-/fs-big-calendar-1.0.35.tgz"
+  "version" "1.0.35"
   dependencies:
     "@babel/runtime" "^7.20.1"
     "clsx" "^1.2.1"
