@@ -16,7 +16,7 @@ const FSCalendar = (props) => {
         {   events: [],
             holidays: [],
             localizer : dateFnsLocalizer({format,parse,startOfWeek,getDay, locales: {'en-US': enUS}}),
-            startDate : props.startDate ? props.startDate.value : new Date(),
+            startDate : new Date(),
         });
     React.useEffect(() => {
         if (props.dataSourceEvents?.status === 'available') {
@@ -41,6 +41,12 @@ const FSCalendar = (props) => {
             setState({...state, holidays: oHolidays});
         }
     }, [props.dataSourceEvents, props.dataSourceHolidays]);
+
+    React.useEffect(() => {
+        if(props?.startDate?.status === 'available'){
+            props.selectedDate.setValue(props.startDate.value);
+        }
+    }, [props.startDate])
 
 
     const handleDateSelect = ({start, end}) => {
