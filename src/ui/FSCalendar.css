@@ -26,10 +26,74 @@ Place your custom CSS here
     font-size: larger;
   }
 
-  .fs-selected-day {
-    background-color: red;
-  }
+
 
   .fs-selected-day-again {
     background-color: green;
+  }
+
+
+
+
+
+  .rbc-toolbar button {
+    height: 25px;
+    font-size: 15px;
+    padding-top: 1px !important;
+  }
+
+  .rbc-toolbar .rbc-toolbar-label {
+    font-size: 23px;
+    color: #40423f;
+    font-weight: 700;
+  }
+
+  .rbc-toolbar {
+    border-bottom: 1px solid #4a4a4a;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .rbc-btn-group {
+    margin-top: 30px;
+    padding-bottom: 14px;
+  }
+
+  .rbc-month-view {
+    border-top: none;
+  }
+
+  .rbc-header + .rbc-header {
+    border: none !important;
+  }
+
+  .rbc-header {
+    font-size: 16px !important;
+  }
+
+  .rbc-date-cell {
+    background-color: #EEEEEEEE !important;
+  }
+
+  .fs-selected-day{
+    border: 1PX SOLID #5E5E5E;
+    z-index: 9;
+    border-left: 1px solid #5E5E5E !important;
+  }
+
+  .rbc-weekend {
+    background-color: #d2e3f3;
+  }
+
+  .rbc-blocked {
+    background-color: #F4E3E3;
+  }
+
+  .rbc-preferred {
+    background-color: #F9F2C0;
+  }
+
+  .rbc-scheduled {
+    background-color: #3174AD;
+    color: white;
   }
