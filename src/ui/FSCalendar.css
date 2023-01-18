@@ -1,99 +1,97 @@
 @import '../../node_modules/fs-big-calendar/lib/css/fs-big-calendar.css';
 
-/*
-Place your custom CSS here
-*/
-.widget-hello-world {
-
-}
 /* 
 .rbc-weekend {
     background-color: red;
 } */
 
 .myCustomHeight{
-    height: 700px;
+  height: 775px;
 }
 
-.rbc-date-cell{
-    background-color: #8080803b;
-  
-  }
-  
-  .rbc-button-link{
-    color: #5b5bc0;
-    font-weight: 600;
-    font-size: larger;
-  }
+/* .rbc-date-cell{
+  background-color: #8080803b;
+
+} */
+
+.rbc-button-link{
+  color: #5b5bc0;
+  font-weight: 600;
+  font-size: larger;
+}
 
 
+.rbc-toolbar button {
+  height: 25px;
+  font-size: 15px;
+  padding-top: 1px !important;
+}
 
-  .fs-selected-day-again {
-    background-color: green;
-  }
+.rbc-toolbar .rbc-toolbar-label {
+  font-size: 23px;
+  color: #40423f;
+  font-weight: 700;
+  margin-top: 10px;
+}
 
+.rbc-toolbar {
+  border-bottom: 1px solid #4a4a4a;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: -10px;
+}
 
+.rbc-btn-group {
+  margin-top: 30px;
+  padding-bottom: 14px;
+}
 
+.rbc-month-view {
+  border-top: none;
+}
 
+.rbc-header + .rbc-header {
+  border: none !important;
+}
 
-  .rbc-toolbar button {
-    height: 25px;
-    font-size: 15px;
-    padding-top: 1px !important;
-  }
+.rbc-header {
+  font-size: 16px !important;
+}
 
-  .rbc-toolbar .rbc-toolbar-label {
-    font-size: 23px;
-    color: #40423f;
-    font-weight: 700;
-  }
+.rbc-date-cell {
+  background-color: #EEEEEEEE !important;
+}
 
-  .rbc-toolbar {
-    border-bottom: 1px solid #4a4a4a;
-    padding-left: 10px;
-    padding-right: 10px;
-  }
+.fs-selected-day{
+  border: 1PX SOLID #5E5E5E !important;
+  z-index: 9; 
+  border-left: 1px solid #5E5E5E !important;
+}
 
-  .rbc-btn-group {
-    margin-top: 30px;
-    padding-bottom: 14px;
-  }
+.rbc-weekend {
+  background-color: #d2e3f3;
+}
 
-  .rbc-month-view {
-    border-top: none;
-  }
+.fs-holiday-cell-background {
+  background-color: #d2e3f3;
+} 
 
-  .rbc-header + .rbc-header {
-    border: none !important;
-  }
+.rbc-blocked {
+  background-color: #F4E3E3;
+}
 
-  .rbc-header {
-    font-size: 16px !important;
-  }
+.rbc-preferred {
+  background-color: #F9F2C0;
+}
 
-  .rbc-date-cell {
-    background-color: #EEEEEEEE !important;
-  }
+.rbc-scheduled {
+  background-color: #3174AD;
+  color: white;
+}
 
-  .fs-selected-day{
-    border: 1PX SOLID #5E5E5E;
-    z-index: 9;
-    border-left: 1px solid #5E5E5E !important;
-  }
-
-  .rbc-weekend {
-    background-color: #d2e3f3;
-  }
-
-  .rbc-blocked {
-    background-color: #F4E3E3;
-  }
-
-  .rbc-preferred {
-    background-color: #F9F2C0;
-  }
-
-  .rbc-scheduled {
-    background-color: #3174AD;
-    color: white;
-  }
+.fs-month-cell-header-text {
+  margin-top: 1px;
+  float: left;
+  font-size: 14px;
+  margin-left: 4px;
+}

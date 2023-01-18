@@ -69,6 +69,14 @@
                 </attributeTypes>
             </property>
 
+            <property key="isForceRefresh" type="attribute" required="false">
+                <caption>Force Widget Refresh</caption>
+                <description />
+                <attributeTypes>
+                    <attributeType name="Boolean"/>
+                </attributeTypes>
+            </property>
+
             <property key="dataSourceHolidays" type="datasource" isList="true" required="true">
                 <caption>Data source</caption>
                 <description />

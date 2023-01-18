@@ -40,14 +40,10 @@ const FSCalendar = (props) => {
             });
             setState({...state, holidays: oHolidays});
         }
-    }, [props.dataSourceEvents, props.dataSourceHolidays]);
-
-    React.useEffect(() => {
-        if(props?.startDate?.status === 'available'){
-            props.selectedDate.setValue(props.startDate.value);
+        if(props.isForceRefresh){
+            props.isForceRefresh.setValue(false);
         }
-    }, [props.startDate])
-
+    }, [props.dataSourceEvents, props.dataSourceHolidays, props.isForceRefresh]);
 
     const handleDateSelect = ({start, end}) => {
         props.selectedDate.setValue(start);
